@@ -3,6 +3,11 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import tareasrouter from "./routers/tareas.js";
+import dns from "node:dns";
+
+if (process.env.NODE_ENV === "production") {
+  dns.setServers(["8.8.8.8","[8.8.8.8]"])
+}
 
 import path from "path";
 import { fileURLToPath } from "url";
